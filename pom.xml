@@ -26,7 +26,7 @@
 
   <build>
     <plugins>
-      <!-- Maven Surefire Plugin: runs all *Test*.java files -->
+      <!-- Maven Surefire Plugin: runs all *Test.java files -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -37,10 +37,30 @@
             <include>**/*Test.java</include>
           </includes>
           <excludes>
-           
             <exclude>**/*TestFail.java</exclude>
           </excludes>
         </configuration>
+      </plugin>
+
+      <!-- JaCoCo Plugin for Code Coverage (SonarCloud requirement) -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.8</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>test</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
