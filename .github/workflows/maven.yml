@@ -1,7 +1,7 @@
 # CI/CD Workflow: Java with Maven + JUnit
 # Otomatis berjalan setiap push / pull_request ke branch main
 
-name: Java CI with Maven
+name: continous_testing_devops
 
 on:
   push:
